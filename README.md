@@ -77,13 +77,13 @@ Este proyecto sigue la arquitectura de capas típica de una aplicación web, sep
 
 
 ---
-Método,Endpoint,Descripción,Parámetros / Cuerpo
-GET,/api/productos/,Obtiene la lista completa de productos escolares.,Ninguno
-GET,/api/productos/{productoId},Obtiene los detalles de un producto específico mediante su ID.,productoId (Variable de ruta)
-POST,/api/productos/,Registra un nuevo producto en el sistema.,Cuerpo JSON (Producto)
-PUT,/api/productos/{productoId},Modifica parcialmente las propiedades de un producto existente.,"productoId (Ruta) + nombre, descripcion, imagen, precio (Query Params opcionales)"
-DELETE,/api/productos/{productoId},Elimina un producto del catálogo por su ID.,productoId (Variable de ruta)
-
+| Método | Endpoint | Descripción | Parámetros / Cuerpo |
+| :--- | :--- | :--- | :--- |
+| **GET** | `/api/productos/` | Obtiene la lista completa de productos escolares. | Ninguno |
+| **GET** | `/api/productos/{productoId}` | Obtiene los detalles de un producto específico mediante su ID. | `productoId` (Variable de ruta) |
+| **POST** | `/api/productos/` | Registra un nuevo producto en el sistema. | Cuerpo JSON (`Producto`) |
+| **PUT** | `/api/productos/{productoId}` | Modifica parcialmente las propiedades de un producto existente. | `productoId` (Ruta) + `nombre`, `descripcion`, `imagen`, `precio` (Query Params opcionales) |
+| **DELETE**| `/api/productos/{productoId}` | Elimina un producto del catálogo por su ID. | `productoId` (Variable de ruta) |
 ---
 
 🛠️ Tecnologías Utilizadas
