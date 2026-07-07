@@ -1,17 +1,3 @@
-This looks like a great start for your e-commerce project API! Before we dive into the explanation, I spotted a tiny bug in your code that you might want to fix.
-
-In `ProductoService.java`, inside the `actualizarProducto` method, look at this line:
-
-```java
-if(descripcion != null) producto.setDescripcion(nombre); // ⚠️ It says 'nombre' instead of 'descripcion'
-
-```
-
-It should be `producto.setDescripcion(descripcion);`. Make sure to correct that so your descriptions update properly!
-
----
-
-Here is a complete, structured breakdown of your files, their purpose, and their logic blocks in Spanish so you can easily adapt this into your `README.md` or technical documentation.
 
 ## 🛠️ Arquitectura del Proyecto (Spring Boot REST API)
 
