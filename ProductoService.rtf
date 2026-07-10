@@ -1,0 +1,225 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2868
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fmodern\fcharset0 Courier-Bold;}
+{\colortbl;\red255\green255\blue255;\red230\green113\blue58;\red16\green16\blue16;\red153\green173\blue42;
+\red230\green230\blue230;\red230\green121\blue255;\red254\green198\blue50;\red70\green168\blue48;\red47\green192\blue255;
+\red109\green182\blue224;}
+{\*\expandedcolortbl;;\csgenericrgb\c90196\c44314\c22745;\csgenericrgb\c6275\c6275\c6275;\csgenericrgb\c60000\c67843\c16471;
+\csgenericrgb\c90196\c90196\c90196;\csgenericrgb\c90196\c47451\c100000;\csgenericrgb\c99608\c77647\c19608;\csgenericrgb\c27451\c65882\c18824;\csgenericrgb\c18431\c75294\c100000;
+\csgenericrgb\c42745\c71373\c87843;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 package \cf1 org.generation.api.servicios
+\f1\b \cf2 ;\
+\
+
+\f0\b0 import \cf1 org.generation.api.modelos.Producto
+\f1\b \cf2 ;\
+
+\f0\b0 import \cf1 org.springframework.stereotype.\cf4 Service
+\f1\b \cf2 ;\
+\
+
+\f0\b0 import \cf1 java.util.ArrayList
+\f1\b \cf2 ;\
+
+\f0\b0 import \cf1 java.util.List
+\f1\b \cf2 ;\
+\
+
+\f0\b0 \cf4 @Service\
+\cf2 public class \cf1 ProductoService \cf5 \{\
+    \cf2 private final \cf1 ArrayList\cf5 <\cf1 Producto\cf5 > \cf6 lista \cf5 = \cf2 new \cf5 ArrayList<>()
+\f1\b \cf2 ;\
+    
+\f0\b0 public \cf7 ProductoService\cf5 ()\{\
+        \cf6 lista\cf5 .add(\cf2 new \cf5 Producto(\cf8 "Mochila ergon\'f3mica"
+\f1\b \cf2 , 
+\f0\b0 \cf8 "Mochila impermeable"
+\f1\b \cf2 , 
+\f0\b0 \cf8 "./mochila.png"
+\f1\b \cf2 , \cf9 649.00
+\f0\b0 \cf5 ))
+\f1\b \cf2 ;\
+        
+\f0\b0 \cf6 lista\cf5 .add(\cf2 new \cf5 Producto(\cf8 "Juego de Geometr\'eda"
+\f1\b \cf2 , 
+\f0\b0 \cf8 "Paquete con regla, escuadras, transportador y comp\'e1s de metal."
+\f1\b \cf2 , 
+\f0\b0 \cf8 "./geometria.png"
+\f1\b \cf2 , \cf9 85.50
+\f0\b0 \cf5 ))
+\f1\b \cf2 ;\
+        
+\f0\b0 \cf6 lista\cf5 .add(\cf2 new \cf5 Producto(\cf8 "Caja de Colores"
+\f1\b \cf2 , 
+\f0\b0 \cf8 "L\'e1pices de color redondos, caja con 24 piezas intensas."
+\f1\b \cf2 , 
+\f0\b0 \cf8 "./colores.png"
+\f1\b \cf2 , \cf9 145.00
+\f0\b0 \cf5 ))
+\f1\b \cf2 ;\
+        
+\f0\b0 \cf6 lista\cf5 .add(\cf2 new \cf5 Producto(\cf8 "Pegamento en Barra"
+\f1\b \cf2 , 
+\f0\b0 \cf8 "L\'e1piz adhesivo de 40 gramos, secado r\'e1pido y limpio."
+\f1\b \cf2 , 
+\f0\b0 \cf8 "./pegamento.png"
+\f1\b \cf2 , \cf9 32.00
+\f0\b0 \cf5 ))
+\f1\b \cf2 ;\
+        
+\f0\b0 \cf6 lista\cf5 .add(\cf2 new \cf5 Producto(\cf8 "Tijeras Escolares"
+\f1\b \cf2 , 
+\f0\b0 \cf8 "Tijeras de punta roma de 5 pulgadas con mango de pl\'e1stico."
+\f1\b \cf2 , 
+\f0\b0 \cf8 "./tijeras.png"
+\f1\b \cf2 , \cf9 24.50
+\f0\b0 \cf5 ))
+\f1\b \cf2 ;\
+        
+\f0\b0 \cf6 lista\cf5 .add(\cf2 new \cf5 Producto(\cf8 "Calculadora Cient\'edfica"
+\f1\b \cf2 , 
+\f0\b0 \cf8 "Calculadora con 240 funciones y pantalla de dos l\'edneas."
+\f1\b \cf2 , 
+\f0\b0 \cf8 "./calculadora.png"
+\f1\b \cf2 , \cf9 319.99
+\f0\b0 \cf5 ))
+\f1\b \cf2 ;\
+        
+\f0\b0 \cf6 lista\cf5 .add(\cf2 new \cf5 Producto(\cf8 "Paquete de Plumas"
+\f1\b \cf2 , 
+\f0\b0 \cf8 "Bol\'edgrafos de punto mediano, color negro, azul y rojo, 12 piezas."
+\f1\b \cf2 , 
+\f0\b0 \cf8 "./plumas.png"
+\f1\b \cf2 , \cf9 58.00
+\f0\b0 \cf5 ))
+\f1\b \cf2 ;\
+        
+\f0\b0 \cf6 lista\cf5 .add(\cf2 new \cf5 Producto(\cf8 "Sacapuntas con Dep\'f3sito"
+\f1\b \cf2 , 
+\f0\b0 \cf8 "Sacapuntas doble para l\'e1piz est\'e1ndar y de dibujo."
+\f1\b \cf2 , 
+\f0\b0 \cf8 "./sacapuntas.png"
+\f1\b \cf2 , \cf9 18.50
+\f0\b0 \cf5 ))
+\f1\b \cf2 ;\
+        
+\f0\b0 \cf6 lista\cf5 .add(\cf2 new \cf5 Producto(\cf8 "Goma de Borrar"
+\f1\b \cf2 , 
+\f0\b0 \cf8 "Borrador de migaj\'f3n blanco, libre de PVC, 3 piezas."
+\f1\b \cf2 , 
+\f0\b0 \cf8 "./gomas.png"
+\f1\b \cf2 , \cf9 22.00
+\f0\b0 \cf5 ))
+\f1\b \cf2 ;\
+        
+\f0\b0 \cf6 lista\cf5 .add(\cf2 new \cf5 Producto(\cf8 "Marca-textos Fluorescentes"
+\f1\b \cf2 , 
+\f0\b0 \cf8 "Paquete de 4 iluminadores de texto en tonos ne\'f3n."
+\f1\b \cf2 , 
+\f0\b0 \cf8 "./marcatextos.png"
+\f1\b \cf2 , \cf9 45.00
+\f0\b0 \cf5 ))
+\f1\b \cf2 ;\
+\
+    
+\f0\b0 \cf5 \}\cf10 //constructor ProductoService\
+\
+    \cf2 public \cf1 List\cf5 <\cf1 Producto\cf5 > \cf7 getProductos\cf5 () \{\
+        \cf2 return \cf6 lista
+\f1\b \cf2 ;\
+    
+\f0\b0 \cf5 \}\cf10 //getproductos\
+\
+    \cf2 public \cf1 Producto \cf7 getProducto\cf5 (\cf1 Long id\cf5 ) \{\
+        \cf1 Producto producto \cf5 = \cf2 null
+\f1\b ;\
+        
+\f0\b0 for\cf5 (\cf1 Producto p\cf5 : \cf6 lista\cf5 )\{\
+            \cf2 if\cf5 (\cf1 p\cf5 .getId().equals(\cf1 id\cf5 ))\{\
+                \cf1 producto \cf5 = \cf1 p
+\f1\b \cf2 ;\
+                
+\f0\b0 break
+\f1\b ;\
+            
+\f0\b0 \cf5 \}\cf10 //if\
+        \cf5 \}\cf10 //foreach\
+        \cf2 return \cf1 producto
+\f1\b \cf2 ;\
+    
+\f0\b0 \cf5 \}\cf10 //getProducto\
+\
+    \cf2 public \cf1 Producto \cf7 deleteProducto\cf5 (\cf1 Long id\cf5 ) \{\
+        \cf1 Producto producto \cf5 = \cf2 null
+\f1\b ;\
+        
+\f0\b0 for\cf5 (\cf1 Producto p\cf5 : \cf6 lista\cf5 )\{\
+            \cf2 if\cf5 (\cf1 p\cf5 .getId().equals(\cf1 id\cf5 ))\{\
+                \cf1 producto \cf5 = \cf1 p
+\f1\b \cf2 ;\
+                
+\f0\b0 \cf6 lista\cf5 .remove(\cf1 producto\cf5 )
+\f1\b \cf2 ;\
+                
+\f0\b0 break
+\f1\b ;\
+            
+\f0\b0 \cf5 \}\cf10 //if\
+        \cf5 \}\cf10 //foreach\
+        \cf2 return \cf1 producto
+\f1\b \cf2 ;\
+    
+\f0\b0 \cf5 \}\
+\
+    \cf2 public \cf1 Producto \cf7 crearProducto\cf5 (\cf1 Producto producto\cf5 ) \{\
+        \cf6 lista\cf5 .add(\cf1 producto\cf5 )
+\f1\b \cf2 ;\
+        
+\f0\b0 return \cf1 producto
+\f1\b \cf2 ;\
+    
+\f0\b0 \cf5 \}\
+\
+    \cf2 public \cf1 Producto \cf7 actualizarProducto\cf5 (\cf1 Long id
+\f1\b \cf2 , 
+\f0\b0 \cf1 String nombre
+\f1\b \cf2 , 
+\f0\b0 \cf1 String descripcion
+\f1\b \cf2 , 
+\f0\b0 \cf1 String imagen
+\f1\b \cf2 , 
+\f0\b0 \cf1 Double precio\cf5 ) \{\
+        \cf1 Producto producto \cf5 = \cf2 null
+\f1\b ;\
+        
+\f0\b0 for\cf5 (\cf1 Producto p\cf5 : \cf6 lista\cf5 )\{\
+            \cf2 if\cf5 (\cf1 p\cf5 .getId().equals(\cf1 id\cf5 ))\{\
+                \cf1 producto \cf5 = \cf1 p
+\f1\b \cf2 ;\
+                
+\f0\b0 if\cf5 (\cf1 nombre \cf5 != \cf2 null\cf5 ) \cf1 producto\cf5 .setNombre(\cf1 nombre\cf5 )
+\f1\b \cf2 ;\
+                
+\f0\b0 if\cf5 (\cf1 descripcion \cf5 != \cf2 null\cf5 ) \cf1 producto\cf5 .setDescripcion(\cf1 descripcion\cf5 )
+\f1\b \cf2 ;\
+                
+\f0\b0 if\cf5 (\cf1 imagen \cf5 != \cf2 null\cf5 ) \cf1 producto\cf5 .setImagen(\cf1 imagen\cf5 )
+\f1\b \cf2 ;\
+                
+\f0\b0 if\cf5 (\cf1 precio \cf5 != \cf2 null\cf5 ) \cf1 producto\cf5 .setPrecio(\cf1 precio\cf5 )
+\f1\b \cf2 ;\
+                
+\f0\b0 break
+\f1\b ;\
+            
+\f0\b0 \cf5 \}\cf10 //if\
+        \cf5 \}\cf10 //forEach\
+        \cf2 return \cf1 producto
+\f1\b \cf2 ;\
+    
+\f0\b0 \cf5 \}\cf10 //actualizarProducto\
+\cf5 \}\cf10 //class ProductoService\
+\
+}
