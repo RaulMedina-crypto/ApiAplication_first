@@ -1,16 +1,28 @@
 package org.generation.api.modelos;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="producto")
 public class Producto {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="productoId", unique=true, nullable = false)
     private Long id;
-    public static Long total = 0L;
+
+    @Column(name="nombre", nullable = false)
     private String nombre;
+
+    @Column(name="descripcion", nullable = false)
     private String descripcion;
+
+    @Column(name="imagen", nullable = false)
     private String imagen;
+
+    @Column(name="precio", nullable = false)
     private Double precio;
 
     public Producto(String nombre, String descripcion, String imagen, Double precio) {
-        Producto.total ++;
-        this.id = Producto.total;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;

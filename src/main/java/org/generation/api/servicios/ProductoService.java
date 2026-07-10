@@ -1,72 +1,65 @@
 package org.generation.api.servicios;
 
 import org.generation.api.modelos.Producto;
+import org.generation.api.repositories.ProductoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ProductoService {
-    private final ArrayList<Producto> lista = new ArrayList<>();
-    public ProductoService(){
-        lista.add(new Producto("Mochila ergonómica", "Mochila impermeable", "./mochila.png", 649.00));
-        lista.add(new Producto("Juego de Geometría", "Paquete con regla, escuadras, transportador y compás de metal.", "./geometria.png", 85.50));
-        lista.add(new Producto("Caja de Colores", "Lápices de color redondos, caja con 24 piezas intensas.", "./colores.png", 145.00));
-        lista.add(new Producto("Pegamento en Barra", "Lápiz adhesivo de 40 gramos, secado rápido y limpio.", "./pegamento.png", 32.00));
-        lista.add(new Producto("Tijeras Escolares", "Tijeras de punta roma de 5 pulgadas con mango de plástico.", "./tijeras.png", 24.50));
-        lista.add(new Producto("Calculadora Científica", "Calculadora con 240 funciones y pantalla de dos líneas.", "./calculadora.png", 319.99));
-        lista.add(new Producto("Paquete de Plumas", "Bolígrafos de punto mediano, color negro, azul y rojo, 12 piezas.", "./plumas.png", 58.00));
-        lista.add(new Producto("Sacapuntas con Depósito", "Sacapuntas doble para lápiz estándar y de dibujo.", "./sacapuntas.png", 18.50));
-        lista.add(new Producto("Goma de Borrar", "Borrador de migajón blanco, libre de PVC, 3 piezas.", "./gomas.png", 22.00));
-        lista.add(new Producto("Marca-textos Fluorescentes", "Paquete de 4 iluminadores de texto en tonos neón.", "./marcatextos.png", 45.00));
+
+    private final ProductoRepository productoRepository;
+
+    @Autowired
+    public ProductoService(ProductoRepository repository){
+        this.productoRepository = repository;
 
     }//constructor ProductoService
 
     public List<Producto> getProductos() {
-        return lista;
+        return productoRepository.findAll();//SELECT * FROM producto
     }//getproductos
 
     public Producto getProducto(Long id) {
-        Producto producto = null;
-        for(Producto p: lista){
-            if(p.getId().equals(id)){
-                producto = p;
-                break;
-            }//if
-        }//foreach
-        return producto;
+        return productoRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("El producto con el Id: " + id + " no existe"));
     }//getProducto
 
     public Producto deleteProducto(Long id) {
         Producto producto = null;
-        for(Producto p: lista){
-            if(p.getId().equals(id)){
-                producto = p;
-                lista.remove(producto);
-                break;
-            }//if
-        }//foreach
+        if(productoRepository.existsById(id)){
+            producto = productoRepository.findById(id).get();
+            productoRepository.deleteById(id);
+        }//if
         return producto;
-    }
+    }//deleteProducto
 
     public Producto crearProducto(Producto producto) {
-        lista.add(producto);
-        return producto;
-    }
+        return productoRepository.save(producto);
+    }//crearProducto
 
-    public Producto actualizarProducto(Long id, String nombre, String descripcion, String imagen, Double precio) {
+    public Producto actualizarProducto(Long id, String nombre, String descripcion, String imagen, Double precio)
+    {
         Producto producto = null;
-        for(Producto p: lista){
-            if(p.getId().equals(id)){
-                producto = p;
-                if(nombre != null) producto.setNombre(nombre);
-                if(descripcion != null) producto.setDescripcion(nombre);
-                if(imagen != null) producto.setImagen(imagen);
-                if(precio != null) producto.setPrecio(precio);
-                break;
-            }//if
-        }//forEach
-        return producto;
+        if(productoRepository.existsById(id))
+        {
+            Producto p = productoRepository.findById(id).get();
+            if (nombre != null) {
+                p.setNombre(nombre);
+            }
+            if (descripcion != null) {
+                p.setDescripcion(descripcion);
+            }
+            if (imagen != null) {
+                p.setImagen(imagen);
+            }
+            if (precio != null) {
+                p.setPrecio(precio);
+            }
+            producto = productoRepository.save(p);
+        }//if
+       return producto;
     }//actualizarProducto
 }//class ProductoService
